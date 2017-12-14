@@ -5,15 +5,35 @@ class Elevator {
     this.requests   = [];
   }
 
-  start() { }
-  stop() { }
-  update() { }
+  start() {
+    setInterval(this.update(), 1000);
+   }
+  
+   stop() { 
+     clearInterval(this.start());
+   }
+  
+   update() { 
+    this.log();
+  }
+  
   _passengersEnter() { }
+  
   _passengersLeave() { }
-  floorUp() { }
-  floorDown() { }
+  
+  floorUp() { 
+    if (this.floor < 10) {return this.floor++;}
+  }
+  
+  floorDown() {
+    if (this.floor > 0) {return this.floor--;}
+   }
+  
   call() { }
-  log() { }
+  
+  log() {
+    return this.floor;
+   }
 }
 
 module.exports = Elevator;
